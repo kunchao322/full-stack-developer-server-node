@@ -4,7 +4,11 @@ import userController   from "./controllers/users-controller.js";
 import helloController from "./controllers/hello-controller.js";
 import tuitsController from "./controllers/tuits-controller.js";
 import mongoose from 'mongoose';
-mongoose.connect('mongodb://localhost:27017/webdev');
+import dotenv from 'dotenv';
+dotenv.config();
+// mongoose.connect('mongodb://127.0.0.1:27017/webdev');
+const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.qhkcq.mongodb.net/TUITS?retryWrites=true&w=majority`;
+mongoose.connect(connectionString);
 
 const app = express();
 app.use(cors());

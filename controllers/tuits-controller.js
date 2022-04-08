@@ -1,7 +1,7 @@
 // import posts from "./data/tuits.js";
 // let tuits = posts;
 
-import tuitsDao from "../tuits/tuitsDao.js";
+import * as tuitsDao from "../tuits/tuitsDao.js";
 
 export default (app) => {
     app.post('/api/tuits', createTuit);
